@@ -1,14 +1,11 @@
 #include <stdio.h>
 
+// to use, pipe in chars from a short text file; e.g. `cat myfile | ./a.out`
 int main(void)
 {
-  int boolTrue, boolFalse;
+  int c;
 
-  boolTrue = 'f' != EOF;
-  printf("True: %d\n", boolTrue);
-
-  boolFalse = EOF != EOF;
-  printf("False: %d\n", boolFalse);
-
-  printf("Everything is as expected: %d", boolTrue == 1 && boolFalse == 0);
+  while ((c = getchar()) != EOF)
+    printf("%d\n", c != EOF);
+  printf("%d\n", c != EOF);
 }
