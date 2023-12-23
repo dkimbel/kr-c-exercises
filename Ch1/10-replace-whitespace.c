@@ -10,7 +10,7 @@ int main(void)
     else if (c == '\b')
       printf("\\b");
     else if (c == '\\')
-      printf("\\");
+      printf("\\\\");
     else
       putchar(c);
   }
