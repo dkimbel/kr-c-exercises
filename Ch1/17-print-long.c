@@ -2,8 +2,6 @@
 
 #define MIN_PRINT_LEN 81
 
-int get_line(char line[], int limit);
-
 int main(void)
 {
   int c, i;
