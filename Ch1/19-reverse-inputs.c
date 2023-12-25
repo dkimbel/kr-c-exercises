@@ -15,6 +15,7 @@ int main(void)
   while ((len = get_line(line, MAX_STR_LEN)) > 0) {
     if (line[len-1] != '\n') {
       // not really sure how to handle a too-long line; exit with error code
+      fprintf(stderr, "Line cannot exceed length %d\n", MAX_STR_LEN);
       return 1;
     }
     // subtract 1 from len so reverse fn doesn't see newline
