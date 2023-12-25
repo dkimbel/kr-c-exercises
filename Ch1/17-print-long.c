@@ -1,34 +1,27 @@
 #include <stdio.h>
 
-#define MAX_LINE_LEN 1000
-#define MIN_PRINT_LEN 80
+#define MIN_PRINT_LEN 81
 
 int get_line(char line[], int limit);
 
 int main(void)
 {
-  int len, runningLen;
-  char line[MAX_LINE_LEN];
+  int c, i;
+  char line_start[MIN_PRINT_LEN + 1];
 
-  while ((len = get_line(line, MAX_LINE_LEN)) > 0) {
-    runningLen = runningLen + len;
-    if (runningLen > 80)
-      printf("%s", line);
-    if (line[len-1] == '\n')
-      runningLen = 0;
+  i = 0;
+  while ((c = getchar()) != EOF) {
+    if (i <= MIN_PRINT_LEN - 1)
+      line_start[i] = c;
+    if (i == MIN_PRINT_LEN - 1) {
+      line_start[i + 1] = '\0';
+      printf("%s", line_start);
+    } else if (i > MIN_PRINT_LEN - 1)
+      putchar(c);
+
+    if (c == '\n')
+      i = 0;
+    else
+      ++i;
   }
-}
-
-int get_line(char line[], int limit)
-{
-  int i, c;
-
-  for (i = 0; i < (limit - 1) && ((c = getchar()) != EOF) && c != '\n'; ++i)
-    line[i] = c;
-  if (c == '\n') {
-    line[i] = c;
-    ++i;
-  }
-  line[i] = '\0';
-  return i;
 }
