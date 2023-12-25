@@ -7,12 +7,16 @@ int get_line(char line[], int limit);
 
 int main(void)
 {
-  int len;
+  int len, runningLen;
   char line[MAX_LINE_LEN];
 
-  while ((len = get_line(line, MAX_LINE_LEN)) > 0)
-    if (len > 80)
+  while ((len = get_line(line, MAX_LINE_LEN)) > 0) {
+    runningLen = runningLen + len;
+    if (runningLen > 80)
       printf("%s", line);
+    if (line[len-1] == '\n')
+      runningLen = 0;
+  }
 }
 
 int get_line(char line[], int limit)
