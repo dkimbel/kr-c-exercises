@@ -2,20 +2,19 @@
 
 #define MAXLINE 1000
 
-int htoi(char s[]);
+int htoi(const char s[]);
 int get_line(char s[], int lim);
 
 int main(void)
 {
-  int len;
   char s[MAXLINE];
 
-  while ((len = get_line(s, MAXLINE)) > 0)
+  while (get_line(s, MAXLINE) > 0)
     printf("%d\n", htoi(s));
   return 0;
 }
 
-int htoi(char s[])
+int htoi(const char s[])
 {
   int i, c, n, next;
 
