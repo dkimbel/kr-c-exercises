@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 #define MAXLINE 1000
 
@@ -16,7 +17,7 @@ int main(void)
 
 int htoi(const char s[])
 {
-  int i, c, n, next;
+  int i, c, lower, n, next;
 
   n = 0;
   for (i = 0; (c = s[i]) != '\0'; ++i) {
@@ -24,10 +25,8 @@ int htoi(const char s[])
       continue;
     else if (c >= '0' && c <= '9')
       next = c - '0';
-    else if (c >= 'a' && c <= 'f')
-      next = (c - 'a') + 10;
-    else if (c >= 'A' && c <= 'F')
-      next = (c - 'A') + 10;
+    else if ((lower = tolower(c)) >= 'a' && lower <= 'f')
+      next = (lower - 'a') + 10;
     else
       fprintf(stderr, "Illegal character %c\n", c);
 
