@@ -39,7 +39,6 @@ int get_line(char s[], int lim)
 {
   int c, i;
 
-  // the exercise was just to rewrite this particular loop
   for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
     s[i] = c;
   // note: modified to NOT include newline
