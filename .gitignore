@@ -1,5 +1,8 @@
 examples/
 
+# Assembly files
+*.s
+
 # Prerequisites
 *.d
 
