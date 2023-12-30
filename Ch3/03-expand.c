@@ -31,7 +31,7 @@ void expand(char s1[], char s2[])
   int max_j = strlen(s2) - 1;
   s2[0] = '\0'; // treat s2 as empty for edge cases
   for (i = j = 0; j <= max_j && (c = s1[i]) != '\0'; i++)
-    if ((d = s1[i + 1]) != '\0' && d == '-' && (e = s1[i + 2]) != '\0') { 
+    if ((d = s1[i + 1]) == '-' && (e = s1[i + 2]) != '\0') { 
       // handle special case of e.g. a-c-e; make sure that if we already expanded 'c' as part
       // of a-c, we won't expand it again during c-e
       if (last_i_expanded == i)
